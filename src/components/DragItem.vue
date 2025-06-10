@@ -1,6 +1,9 @@
 <template>
   <li
     class="px-4 py-7 hover:bg-indigo-500 transition-all cursor-grab rounded-lg flex justify-between"
+    draggable="true"
+    @dragstart="onDragStart"
+    @dragend="onDragEnd"
   >
     {{ item }}
     <div class="flex gap-1 text items-center">
@@ -10,9 +13,24 @@
   </li>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { X, Pen } from 'lucide-vue-next'
-defineProps({
+
+const props = defineProps({
   item: String,
 })
+
+const emit = defineEmits(['dragstart', 'dragend'])
+
+const onDragStart = (e: DragEvent) => {
+  if (e.dataTransfer) {
+    e.dataTransfer.effectAllowed = 'move'
+    e.dataTransfer.setData('text/plain', props.item || '')
+  }
+  emit('dragstart', e)
+}
+
+const onDragEnd = (e: DragEvent) => {
+  emit('dragend', e)
+}
 </script>
