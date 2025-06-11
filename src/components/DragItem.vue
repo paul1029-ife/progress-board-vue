@@ -1,6 +1,6 @@
 <template>
   <li
-    class="px-4 py-7 hover:bg-indigo-500 transition-all cursor-grab rounded-lg flex justify-between"
+    class="px-4 py-7 bg-indigo-500 transition-all cursor-grab rounded-lg flex justify-between mx-2"
     draggable="true"
     @dragstart="onDragStart"
     @dragend="onDragEnd"
