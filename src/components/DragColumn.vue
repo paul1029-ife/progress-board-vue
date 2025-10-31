@@ -22,6 +22,8 @@
         :key="index"
         @dragstart="onDragStart"
         @dragend="onDragEnd"
+        @edit="onEdit"
+        @delete="onDelete"
       />
     </ul>
   </div>
@@ -33,11 +35,11 @@ import { PlusIcon } from 'lucide-vue-next'
 import { ChevronDown } from 'lucide-vue-next'
 
 const props = defineProps({
-  header: String,
+  header: String || Number,
   items: Array as () => string[],
 })
 
-const emit = defineEmits(['itemDrop', 'itemDragStart', 'itemDragEnd'])
+const emit = defineEmits(['itemDrop', 'itemDragStart', 'itemDragEnd', 'itemEdit', 'itemDelete'])
 
 const onDrop = (e: DragEvent) => {
   e.preventDefault()
@@ -53,5 +55,13 @@ const onDragStart = (e: DragEvent) => {
 
 const onDragEnd = (e: DragEvent) => {
   emit('itemDragEnd', { event: e, columnId: props.header })
+}
+
+const onEdit = ({ oldItem, newItem }: { oldItem: string; newItem: string }) => {
+  emit('itemEdit', { oldItem, newItem, columnId: props.header })
+}
+
+const onDelete = (item: string) => {
+  emit('itemDelete', { item, columnId: props.header })
 }
 </script>
