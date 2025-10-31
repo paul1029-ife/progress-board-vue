@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import logo from '@/assets/logo.png'
 </script>
 
@@ -11,10 +11,10 @@ import logo from '@/assets/logo.png'
       <p class="text-xl font-bold">Restate</p>
     </div>
     <div class="flex gap-7">
-      <a class="text-lg hover:-translate-y-2 transition-all cursor-pointer">Home</a>
-      <a class="text-lg hover:-translate-y-2 transition-all cursor-pointer">Boards</a>
-      <a class="text-lg hover:-translate-y-2 transition-all cursor-pointer">Pricing</a>
-      <a class="text-lg hover:-translate-y-2 transition-all cursor-pointer">Contact</a>
+      <a class="text-lg hover:-translate-y-1 transition-all cursor-pointer">Home</a>
+      <a class="text-lg hover:-translate-y-1 transition-all cursor-pointer">Boards</a>
+      <a class="text-lg hover:-translate-y-1 transition-all cursor-pointer">Pricing</a>
+      <a class="text-lg hover:-translate-y-1 transition-all cursor-pointer">Contact</a>
     </div>
     <div>
       <button class="bg-indigo-400 px-3 py-2 rounded-lg">Create Account</button>
